@@ -1,0 +1,26 @@
+1.Ans the question no 1
+
+getElementById ()= একটি unique ID দিয়ে একটা element select করতে use হয়
+getElementsByClassName()= একটি class name দিয়ে সব matching elements select করতে ব্যাবহার হয়
+querySelector//querySelectorAll
+CSS selector দিয়ে element select করতে।
+querySelector: প্রথম match করে return করে।
+querySelectorAll: সব match করে return করে, NodeList আকারে।
+
+
+2. Ans the question no 2
+document.createElement() দিয়ে নতুন এলিমেন্ট তৈরি করা।
+.innerText বা .innerHTML দিয়ে কন্টেন্ট যোগ করা (optional)।
+appendChild() বা insertBefore() দিয়ে DOM-এ সেই এলিমেন্ট ইনসার্ট করা।
+
+
+
+3. Ans the question no 3
+Event Bubbling ঃ হলো DOM-এর event propagation-এর একটা ধাপ মানে হলো: যখন একটা child element এ event (যেমন click) trigger করা হয়, সেটা automatically parent elements এও “bubble up” করে।
+
+4 Ans the question no 4
+Event Delegationঃ হলো একটি technique যেখানে parent element এ event listener বসিয়ে সেই listener handle করে তার child elements এর events।
+
+4 Ans the question no 5
+preventDefault(): ইভেন্টের ডিফল্ট ব্রাউজার অ্যাকশনকে থামায়।
+stopPropagation(): ইভেন্টকে প্যারেন্ট এলিমেন্ট পর্যন্ত পৌঁছাতে বাধা দেয়।

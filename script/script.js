@@ -1,4 +1,3 @@
-
 // count 
 let Interviewlist = [];
 let Rejectedlist = [];
@@ -8,17 +7,17 @@ const total = document.getElementById('total');
 const RejectedCount = document.getElementById('RejectedCount');
 const InterviewCount = document.getElementById('InterviewCount');
 
-// card sections
+    // card sections
 const AllCardSection = document.getElementById('allCards');
 const mainContainer = document.querySelector('main');
 const filtersection = document.getElementById('filtered-section');
 
-// filter buttons
+        // filter buttons
 const allFilterBtn = document.getElementById('all-filter-btn');
 const InterviewFilterBtn = document.getElementById('Interview-filter-btn');
 const RejectedFilterBtn = document.getElementById('Rejected-filter-btn');
 
-// count update function
+    // count update function
 function updateCount() {
     total.innerText = AllCardSection.children.length;
     InterviewCount.innerText = Interviewlist.length;
@@ -26,7 +25,7 @@ function updateCount() {
 }
 updateCount();
 
-// toggle filter buttons
+                    // toggle filter buttons
 function toggleStyle(id) {
     allFilterBtn.classList.add('bg-[#F1F2F4]', 'text-black');
     InterviewFilterBtn.classList.add('bg-[#F1F2F4]', 'text-black');
@@ -38,14 +37,20 @@ function toggleStyle(id) {
     const selected = document.getElementById(id);
     selected.classList.remove('bg-[#F1F2F4]', 'text-black');
     selected.classList.add('bg-black', 'text-white');
+
+
     if (id === 'Interview-filter-btn') {
         AllCardSection.classList.add('hidden');
         filtersection.classList.remove('hidden');
         renderFiltered('interview');
+
+
     } else if (id === 'Rejected-filter-btn') {
         AllCardSection.classList.add('hidden');
         filtersection.classList.remove('hidden');
         renderFiltered('rejected');
+
+
     } else {
         AllCardSection.classList.remove('hidden');
         filtersection.classList.add('hidden');
@@ -81,11 +86,42 @@ mainContainer.addEventListener('click', function(event) {
         renderFiltered('rejected');
     }
 });
+            // delete
+mainContainer.addEventListener('click', function(event) {
 
-// render filtered section
+    const card = event.target.closest('.card');
+    if (!card) return;
+
+
+    const companyName = card.querySelector('.companyName').innerText;
+
+
+    if (event.target.closest('.icone-delete')) {
+
+        Interviewlist = Interviewlist.filter(item => item.companyName !== companyName);
+        Rejectedlist = Rejectedlist.filter(item => item.companyName !== companyName);
+        card.remove();
+        updateCount();
+
+        if (!filtersection.classList.contains('hidden')) {
+            const activeType = InterviewFilterBtn.classList.contains('bg-black') ? 'interview' :
+            RejectedFilterBtn.classList.contains('bg-black') ? 'rejected' : null;
+            if (activeType) renderFiltered(activeType);
+        }
+    }
+});
+
+
+
+
+
+
+
+
+// render section
 function renderFiltered(type) {
     filtersection.innerHTML = '';
-    
+
 
     let list = type === 'interview' ? Interviewlist : Rejectedlist;
 
@@ -122,3 +158,4 @@ function renderFiltered(type) {
         filtersection.appendChild(div);
     });
 }
+
