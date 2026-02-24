@@ -32,7 +32,7 @@
             </div>
             <div class="bg-[#F1F2F4] p-4 rounded-xl">
                 <p>Interview</p>
-                <p id="InterviewCount" class="text-green-500">0</p>
+                <p id="InterviewCount" class=" text-green-500 " >0</p>
             </div>
             <div class="bg-[#F1F2F4] p-4 rounded-xl">
                 <p>Rejected</p>
@@ -48,10 +48,16 @@
     <main  class="w-[80%] mx-auto">
         <div class="mb-6">
             <!-- <h2>Aavilable job</h2> -->
-            <button onclick= "toggleStyle('all-filter-btn')" class="bg-black text-white px-5 py-2" id="all-filter-btn">All</button>
+            <button onclick= "toggleStyle('all-filter-btn')" class="bg-black text-white px-5 py-2" id="all-filter-btn"> All</button>
             <button onclick= "toggleStyle('Interview-filter-btn')" class="bg-[#F1F2F4]  px-5 py-2" id="Interview-filter-btn">Interview</button>
             <button onclick= "toggleStyle('Rejected-filter-btn')" class="bg-[#F1F2F4]  px-5 py-2" id="Rejected-filter-btn">Rejected</button>
         </div>
+        <section id="filtered-section" class="hidden space-y-6">
+        <div id="empty-state" class="hidden text-center">
+            <img src="./jobs.png" alt="No data" class="mx-auto w-64">
+            <p class="text-gray-500 mt-4">No jobs found!</p>
+        </div>
+        </section>
                 <!-- filterd card -->
         <section id="filtered-section" class="hidden">
         </section>
