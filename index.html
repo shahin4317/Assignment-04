@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- talwind css -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            font-family: "Geist", sans-serif;;
+        }
+    </style>
+    <title>Job Application Tracker</title>
+</head>
+<body>
+    <header class="w-[80%] mx-auto">
+        <h1 class="text-2xl font-bold text-black">Job Application Tracker</h1>
+        <br>
+        <div class="grid grid-cols-3 gap-8 ">
+            <div class="bg-[#F1F2F4] p-4 rounded-xl">
+                <p >Total</p>
+                <p id="total" class="text-red-500">0</p>
+            </div>
+            <div class="bg-[#F1F2F4] p-4 rounded-xl">
+                <p>Interview</p>
+                <p id="InterviewCount" class="text-green-500">0</p>
+            </div>
+            <div class="bg-[#F1F2F4] p-4 rounded-xl">
+                <p>Rejected</p>
+                <p id="RejectedCount" class="text-red-500">0</p>
+            </div>
+        </div>
+        <br>
+        <hr class="my-2">
+        <br>
+        
+    </header>
+    
+    <main  class="w-[80%] mx-auto">
+        <div class="mb-6">
+            <!-- <h2>Aavilable job</h2> -->
+            <button class="bg-black text-white px-5 py-2" id="all-filter-btn">All</button>
+            <button class="bg-[#F1F2F4]  px-5 py-2" id="Interview-filter-btn">Interview</button>
+            <button class="bg-[#F1F2F4]  px-5 py-2" id="Rejected-filter-btn">Rejected</button>
+        </div>
+                <!-- filterd card -->
+        <section id="filtered-section" class="hidden">
+        </section>
+
+    </main>
+           
+
+<script src="./script/script.js"></script>
+
+</body>
+</html>
