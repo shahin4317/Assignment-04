@@ -21,6 +21,6 @@ Event Bubbling ঃ হলো DOM-এর event propagation-এর একটা �
 4 Ans the question no 4
 Event Delegationঃ হলো একটি technique যেখানে parent element এ event listener বসিয়ে সেই listener handle করে তার child elements এর events।
 
-4 Ans the question no 5
+5 Ans the question no 5
 preventDefault(): ইভেন্টের ডিফল্ট ব্রাউজার অ্যাকশনকে থামায়।
 stopPropagation(): ইভেন্টকে প্যারেন্ট এলিমেন্ট পর্যন্ত পৌঁছাতে বাধা দেয়।
