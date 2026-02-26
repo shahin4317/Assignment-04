@@ -53,15 +53,15 @@
         <div class="flex flex-wrap gap-4 mb-6">
           <div class="flex-1 min-w-28 bg-white rounded-2xl px-6 py-5 shadow-sm">
             <p class="text-xs text-slate-500 mb-1">Total</p>
-            <p class=" text-2xl font-bold text-navy">0</p>
+            <p class=" text-2xl font-bold text-navy" id="stat-total">0</p>
           </div>
           <div class="flex-1 min-w-28 bg-white rounded-2xl px-6 py-5 shadow-sm">
             <p class="text-xs text-slate-500 mb-1">Interview</p>
-            <p class=" text-2xl font-bold text-teal">0</p>
+            <p class=" text-2xl font-bold text-teal" id="stat-interview">0</p>
           </div>
           <div class="flex-1 min-w-28 bg-white rounded-2xl px-6 py-5 shadow-sm">
             <p class="text-xs text-slate-500 mb-1">Rejected</p>
-            <p class=" text-2xl font-bold text-coral">0</p>
+            <p class=" text-2xl font-bold text-coral" id="stat-reject">0</p>
           </div>
         </div>
 
@@ -78,18 +78,20 @@
         <div class="flex flex-wrap gap-2 mb-5">
           <button
             id="tab-all"
-            onclick="switchTab('All')"
+            onclick="switchTab('all')"
             class="px-5 py-1.5 rounded-full border-2 text-sm font-medium cursor-pointer transition-all duration-200"
           >
             All
           </button>
+
           <button
             id="tab-interview"
-            onclick="switchTab('Interview')"
+            onclick="switchTab('interview')"
             class="px-5 py-1.5 rounded-full border-2 text-sm font-medium cursor-pointer transition-all duration-200"
           >
             Interview
           </button>
+
           <button
             id="tab-rejected"
             onclick="switchTab('rejected')"
@@ -100,9 +102,11 @@
         </div>
 
         <!-- Job Cards -->
-        <div class="flex flex-col gap-4">
-          <section class="flex flex-col gap-2">
-            <div
+        <div id="jobs-container" class="flex flex-col gap-4">
+          <section id="all-container" class=" hidden flex flex-col gap-2">
+
+            <!-- card 1 -->
+           <div
               class="card bg-white rounded-2xl border-2 border-slate-100 px-6 py-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 animate-fadeUp"
             >
               <div class="flex justify-between items-start gap-4">
@@ -146,17 +150,60 @@
                 </button>
               </div>
             </div>
+           <div
+              class="card bg-white rounded-2xl border-2 border-slate-100 px-6 py-5 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 animate-fadeUp"
+            >
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1 min-w-0">
+                  <p class="font-syne font-bold text-navy text-base mb-0.5">webFlow Agency</p>
+                  <p class="text-sm text-slate-500 mb-1.5">Web Designer Developer</p>
+                  <p class="text-xs text-slate-400 mb-3">
+                    <span>Los Angeles CA</span>
+                    <span class="mx-1.5 text-slate-300">·</span>
+                    <span>Full-time</span>
+                    <span class="mx-1.5 text-slate-300">·</span>
+                    <span>$130,000 - $175,000</span>
+                  </p>
+                  <div
+                    class="mb-3 inline-block text-[0.65rem] font-bold tracking-widest uppercase px-3 py-1 rounded-full bg-slate-200 text-slate-500"
+                  >
+                    Not Applied
+                  </div>
+                  <p class="text-xs text-slate-500 leading-relaxed mb-4">
+                    Create a stunning web experience for high profile clients, 
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <button
+                      class="text-xs font-semibold px-4 py-1.5 rounded-md border-2 border-teal text-teal bg-transparent cursor-pointer transition-all duration-150 hover:bg-teal hover:text-white"
+                    >
+                      Interview
+                    </button>
+                    <button
+                      class="text-xs font-semibold px-4 py-1.5 rounded-md border-2 border-coral text-coral bg-transparent cursor-pointer transition-all duration-150 hover:bg-coral hover:text-white"
+                    >
+                      Rejected
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  class="text-slate-300 hover:text-red-400 transition-colors duration-150 py-2 px-3 cursor-pointer shrink-0 bg-red-300 rounded-full"
+                >
+                  <i class="fa-regular fa-trash-can text-black pointer-events-none"></i>
+                </button>
+              </div>
+            </div>
 
 
 
 
           </section>
-          <section class="flex flex-col gap-2" id="interview-container"></section>
-          <section class="flex flex-col gap-2" id="reject-container"></section>
+          <section class="hidden" id="interview-container">Interview section</section>
+          <section class="hidden" id="reject-container">Reject section</section>
         </div>
 
         <!-- Empty State -->
-        <div class=" bg-white rounded-xl border-2 border-slate-100 px-6 flex-col items-center justify-center py-20 gap-4 text-center">
+        <div class=" hidden bg-white rounded-xl border-2 border-slate-100 px-6 flex-col items-center justify-center py-20 gap-4 text-center">
           <div class="felx flex justify-center"><img src="./jobs.png" alt=""></div>
           <p class="font-syne text-lg font-bold text-navy">No jobs available</p>
           <p class="text-sm text-slate-400">Check back soon for new job opportunities</p>
