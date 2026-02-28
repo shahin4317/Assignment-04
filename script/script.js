@@ -4,7 +4,7 @@ const tabInactive = ["bg-transparent", "text-slate-700","text-slate-200","text-b
 const allContainer = document.getElementById("all-container")
 const interviewContainer = document.getElementById("interview-container")
 const rejectContainer = document.getElementById("reject-container")
-console.log(allContainer,interviewContainer,rejectContainer);
+// console.log(allContainer,interviewContainer,rejectContainer);
 
 
 
@@ -41,14 +41,49 @@ function switchTab(tab) {
 
 // stat update 
 const totalStat = document.getElementById("stat-total")
-const interviewStat = document.getElementById("interview-total")
-const rejectStat = document.getElementById("reject-total")
+const interviewStat = document.getElementById("stat-interview")
+const rejectStat = document.getElementById("stat-reject")
 totalStat.innerText = allContainer.children.length;
 
 switchTab(currentTab);
 
+document.getElementById("jobs-container").addEventListener("click", function(event){
+
+    
+    const clickedElement = event.target;
+    const card = clickedElement.closest(".card")
+    const parent = card.parentNode;
+    const status =card.querySelector('.status')
+    console.log(card, interviewContainer.length)
 
 
+    if( clickedElement.classList.contains("interview")){
+        status.innerText = "Interviwed"
+        interviewContainer.appendChild(card);
+        updateStat();
 
+    
 
+    }
+    if( clickedElement.classList.contains("rejected")){
+        status.innerText = "Rejected"
+        rejectContainer.appendChild(card);
+        updateStat();
+      
 
+    }
+    if( clickedElement.classList.contains("delete")){
+        parent.removeChild(card);
+        updateStat();
+       
+
+    }
+});
+
+function updateStat(){
+    totalStat.innerText= allContainer.children.length;
+    interviewStat.innerText= interviewContainer.children.length;
+    rejectStat.innerText= rejectContainer.children.length;
+}
+
+updateStat();
